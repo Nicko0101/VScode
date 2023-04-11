@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mi página web</title>
+    <style>
+      .slider {
+        width: 50%;
+        margin: 0 auto; /* Esto centrará la barra deslizante */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Este es un encabezado</h1>
+    <p>Este es un párrafo de texto</p>
+    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+    <p>El valor de la barra deslizante es: <span id="demoValue"></span></p>
+    <input type="range" min="1" max="100" value="50" class="slider" id="myRange2">
+    <p>El valor de la segunda barra deslizante es: <span id="demoValue2"></span></p>
+    <input type="range" min="1" max="100" value="50" class="slider" id="myRange3">
+    <p>El valor de la tercera barra deslizante es: <span id="demoValue3"></span></p>
+    <script>
+      var slider = document.getElementById("myRange");
+      var output = document.getElementById("demoValue");
+      var slider2 = document.getElementById("myRange2");
+      var output2 = document.getElementById("demoValue2");
+      var slider3 = document.getElementById("myRange3");
+      var output3 = document.getElementById("demoValue3");
+
+      output.innerHTML = slider.value;
+      output2.innerHTML = slider2.value;
+      output3.innerHTML = slider3.value;
+
+      slider.oninput = function() {
+        output.innerHTML = this.value;
+        slider2.value = this.value;
+        slider3.value = this.value;
+        output2.innerHTML = slider2.value;
+        output3.innerHTML = slider3.value;
+      }
+
+      slider2.oninput = function() {
+        output2.innerHTML = this.value;
+        slider.value = this.value;
+        slider3.value = this.value;
+        output.innerHTML = slider.value;
+        output3.innerHTML = slider3.value;
+      }
+
+      slider3.oninput = function() {
+        output3.innerHTML = this.value;
+        slider.value = this.value;
+        slider2.value = this.value;
+        output.innerHTML = slider.value;
+        output2.innerHTML = slider2.value;
+      }
+    </script>
+  </body>
+</html>
